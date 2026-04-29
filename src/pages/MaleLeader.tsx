@@ -70,7 +70,7 @@ const TrainerCard = ({ s, i }: { s: Submission; i: number }) => {
 
         {/* Footer */}
         <div className="flex items-center justify-between px-3 pb-2 pt-1 mx-2 border-t border-[hsl(var(--pkm-ink))]/40">
-          <span className="text-[9px] text-[hsl(var(--pkm-ink))]/70">SG • 2026</span>
+          <span className="text-[9px] text-[hsl(var(--pkm-ink))]/70">CANON LG • 2026</span>
           <span className="text-[9px] font-bold text-[hsl(var(--pkm-ink))]">★ RARE HOLO</span>
         </div>
       </div>
@@ -103,12 +103,12 @@ const MaleLeader = () => {
 
       <section className="container mx-auto px-6 py-10 text-center">
         <p className="pkm-title text-[10px] md:text-xs text-[hsl(var(--pkm-yellow))] mb-6">A LEGENDARY COLLECTION</p>
-        <h1 className="pkm-title text-3xl md:text-6xl text-white mb-6">
-          THANK YOU,
+        <h1 className="pkm-title text-3xl md:text-6xl text-white mb-6 uppercase">
+          Thank you,
           <br />
           {MALE_LEADER_NAME}
         </h1>
-        <p className="max-w-xl mx-auto text-white/85 text-sm md:text-base">20 trainer cards from your small group. Each one a trait, a memory, a message — all for you.</p>
+        <p className="max-w-xl mx-auto text-white/85 text-sm md:text-base">20 trainer cards from your LIFE Group. Each one a trait, a memory, a message — all for you.</p>
         <div className="flex justify-center mt-8">
           <div className="pokeball pkm-float" />
         </div>

@@ -55,7 +55,7 @@ const Index = () => {
             textShadow: '2px 2px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000',
           }}
         >
-          Two people. Twenty-one hearts. One huge thank-you. Pick a leader to read what we wrote.
+          Two people. Twenty hearts. One huge thank-you. Pick a leader to read what we wrote.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
