@@ -26,7 +26,7 @@ const Photocard = ({
 }) => {
   const rot = ((i * 37) % 7) - 3; // -3 to +3 deg
   const grad = photoGradients[i % photoGradients.length];
-  const initial = s.member[0];
+  const iuImageNumber = (i % 20) + 1; // Cycles through iu-1.jpg to iu-20.jpg
 
   return (
     <article className="iu-card" style={{ transform: `rotate(${rot}deg)` }}>
@@ -49,15 +49,15 @@ const Photocard = ({
           </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <span
-              className="iu-title text-7xl"
+            <img
+              src={`/iu/iu-${iuImageNumber}.jpg`}
+              alt={`IU ${iuImageNumber}`}
+              className="w-48 h-48 rounded-full object-cover"
               style={{
-                color: 'hsl(var(--iu-ink) / 0.5)',
-                textShadow: '0 4px 20px hsl(0 0% 100% / 0.6)',
+                border: '3px solid hsl(var(--iu-ink) / 0.3)',
+                boxShadow: '0 4px 20px hsl(0 0% 0% / 0.3)',
               }}
-            >
-              {initial}
-            </span>
+            />
           </div>
         )}
         <div
