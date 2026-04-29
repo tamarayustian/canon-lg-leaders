@@ -83,7 +83,7 @@ const Photocard = ({
 
         <div className="absolute bottom-2 left-2 right-2 flex items-end justify-between">
           <span className="iu-hangul text-[10px] text-white/90 tracking-widest">
-            사랑해요
+            매우 감사합니다
           </span>
           <span className="iu-serif text-[10px] text-white/90 italic">
             no. {String(i + 1).padStart(2, '0')}
