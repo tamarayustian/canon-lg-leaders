@@ -1,111 +1,333 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap');
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    /* Default (landing) — soft neutral */
+    --background: 40 30% 97%;
+    --foreground: 240 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 15%;
+
+    --primary: 240 20% 15%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 240 20% 15%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 240 10% 45%;
+
+    --accent: 40 20% 92%;
+    --accent-foreground: 240 20% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 88%;
+    --input: 240 10% 88%;
+    --ring: 240 20% 15%;
+
+    --radius: 0.75rem;
+
+    /* === Pokemon theme tokens === */
+    --pkm-bg: 48 100% 96%;
+    --pkm-bg-deep: 220 70% 12%;
+    --pkm-yellow: 48 100% 55%;
+    --pkm-yellow-deep: 42 100% 48%;
+    --pkm-red: 354 80% 52%;
+    --pkm-blue: 215 90% 48%;
+    --pkm-gold: 42 95% 60%;
+    --pkm-card: 48 95% 92%;
+    --pkm-card-border: 42 90% 45%;
+    --pkm-ink: 220 50% 12%;
+
+    --gradient-pkm-holo: linear-gradient(115deg, hsl(330 90% 70% / 0.55), hsl(190 95% 65% / 0.55), hsl(60 100% 70% / 0.55), hsl(280 85% 70% / 0.55), hsl(150 85% 65% / 0.55));
+    --gradient-pkm-card: linear-gradient(160deg, hsl(48 100% 88%) 0%, hsl(42 95% 78%) 50%, hsl(38 90% 68%) 100%);
+    --gradient-pkm-sky: radial-gradient(ellipse at top, hsl(48 100% 70%) 0%, hsl(35 95% 60%) 40%, hsl(354 75% 45%) 100%);
+    --shadow-pkm-card: 0 18px 40px -12px hsl(220 70% 12% / 0.45), 0 0 0 6px hsl(48 100% 55%), 0 0 0 8px hsl(220 60% 18%);
+
+    /* === IU theme tokens === */
+    --iu-bg: 25 60% 97%;
+    --iu-bg-deep: 340 50% 96%;
+    --iu-lilac: 280 45% 78%;
+    --iu-lilac-deep: 275 40% 55%;
+    --iu-peach: 18 85% 82%;
+    --iu-rose: 345 70% 75%;
+    --iu-cream: 35 75% 95%;
+    --iu-ink: 320 25% 22%;
+    --iu-gold: 38 70% 60%;
+
+    --gradient-iu-sky: linear-gradient(180deg, hsl(25 80% 96%) 0%, hsl(340 60% 94%) 50%, hsl(280 50% 92%) 100%);
+    --gradient-iu-card: linear-gradient(160deg, hsl(35 80% 97%) 0%, hsl(340 60% 93%) 100%);
+    --gradient-iu-tape: linear-gradient(90deg, hsl(38 70% 70% / 0.7), hsl(38 70% 80% / 0.85), hsl(38 70% 70% / 0.7));
+
+    --shadow-iu-card: 0 14px 36px -16px hsl(320 40% 40% / 0.35), 0 2px 6px hsl(320 30% 60% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* ============== POKEMON CARD ============== */
+@layer components {
+  .pkm-page {
+    background: radial-gradient(circle at 20% 10%, hsl(48 100% 75% / 0.5), transparent 50%), radial-gradient(circle at 85% 30%, hsl(215 90% 60% / 0.35), transparent 55%), radial-gradient(circle at 50% 100%, hsl(354 80% 55% / 0.4), transparent 60%), hsl(var(--pkm-bg-deep));
+    color: hsl(var(--pkm-bg));
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  .pkm-title {
+    font-family: 'Press Start 2P', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    text-shadow:
+      2px 2px 0 hsl(var(--pkm-blue)),
+      4px 4px 0 hsl(var(--pkm-red)),
+      6px 6px 12px hsl(220 80% 5% / 0.6);
+  }
+
+  .pkm-card {
+    position: relative;
+    border-radius: 18px;
+    background: var(--gradient-pkm-card);
+    box-shadow: var(--shadow-pkm-card);
+    overflow: hidden;
+    transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .pkm-card:hover {
+    transform: translateY(-8px) rotate(-1deg) scale(1.02);
+  }
+
+  .pkm-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-pkm-holo);
+    background-size: 250% 250%;
+    mix-blend-mode: color-dodge;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+    animation: holo-shift 6s linear infinite;
+  }
+  .pkm-card:hover::before {
+    opacity: 0.85;
+  }
+
+  .pkm-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(135deg, transparent 0 8px, hsl(0 0% 100% / 0.08) 8px 9px);
+    pointer-events: none;
+  }
+
+  .pkm-frame {
+    position: relative;
+    margin: 14px;
+    border: 4px solid hsl(var(--pkm-ink));
+    border-radius: 10px;
+    background: hsl(var(--pkm-card));
+    z-index: 1;
+  }
+
+  .pkm-art {
+    background: var(--gradient-pkm-sky);
+    border-bottom: 4px solid hsl(var(--pkm-ink));
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pkm-badge {
+    font-family: 'Press Start 2P', system-uino, sans-serif;
+    background: hsl(var(--pkm-yellow));
+    color: hsl(var(--pkm-ink));
+    border: 2px solid hsl(var(--pkm-ink));
+    box-shadow: 2px 2px 0 hsl(var(--pkm-ink));
+  }
+
+  @keyframes holo-shift {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 250% 250%;
+    }
+  }
+
+  @keyframes pkm-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(-12px) rotate(2deg);
+    }
+  }
+  .pkm-float {
+    animation: pkm-float 5s ease-in-out infinite;
+  }
+
+  /* Pokeball decoration */
+  .pokeball {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, hsl(var(--pkm-red)) 0 50%, white 50% 100%);
+    border: 4px solid hsl(var(--pkm-ink));
+    position: relative;
+  }
+  .pokeball::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 6px;
+    background: hsl(var(--pkm-ink));
+    transform: translateY(-50%);
+  }
+  .pokeball::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid hsl(var(--pkm-ink));
+    transform: translate(-50%, -50%);
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+/* ============== IU PHOTOCARD ============== */
+@layer components {
+  .iu-page {
+    background: var(--gradient-iu-sky);
+    color: hsl(var(--iu-ink));
+    position: relative;
+    overflow-x: hidden;
   }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+  .iu-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 20%, hsl(var(--iu-rose) / 0.25) 0, transparent 25%), radial-gradient(circle at 85% 60%, hsl(var(--iu-lilac) / 0.3) 0, transparent 30%), radial-gradient(circle at 50% 90%, hsl(var(--iu-peach) / 0.25) 0, transparent 28%);
+    pointer-events: none;
   }
-}
-p {
-  margin: 0;
-}
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+  .iu-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .iu-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .iu-hangul {
+    font-family: 'Nanum Myeongjo', serif;
+  }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  .iu-card {
+    position: relative;
+    background: var(--gradient-iu-card);
+    border-radius: 6px;
+    padding: 14px 14px 22px;
+    box-shadow: var(--shadow-iu-card);
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .iu-card:hover {
+    transform: translateY(-6px) rotate(0deg) !important;
+  }
+
+  .iu-card::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 18px;
+    background: var(--gradient-iu-tape);
+    box-shadow: 0 2px 4px hsl(320 30% 40% / 0.15);
+    border-radius: 1px;
+  }
+
+  .iu-photo {
+    aspect-ratio: 3 / 4;
+    border-radius: 3px;
+    background: radial-gradient(ellipse at 30% 25%, hsl(35 80% 92%), transparent 60%), linear-gradient(165deg, hsl(340 50% 88%), hsl(280 40% 80%));
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsl(var(--iu-ink) / 0.06);
+  }
+  .iu-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, hsl(320 30% 25% / 0.15));
+  }
+
+  .iu-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: hsl(var(--iu-gold));
+    border-radius: 50%;
+    box-shadow: 0 0 8px hsl(var(--iu-gold));
+    animation: iu-twinkle 3s ease-in-out infinite;
+  }
+  @keyframes iu-twinkle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes iu-petal {
+    0% {
+      transform: translateY(-10vh) translateX(0) rotate(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(110vh) translateX(40px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  .iu-petal {
+    position: fixed;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at 30% 30%, hsl(var(--iu-rose)), hsl(var(--iu-lilac)));
+    border-radius: 60% 40% 60% 40%;
+    pointer-events: none;
+    animation: iu-petal linear infinite;
+  }
 }
