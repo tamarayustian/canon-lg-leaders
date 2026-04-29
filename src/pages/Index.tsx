@@ -73,7 +73,7 @@ const Index = () => {
             </div>
             <p className="pkm-title text-xs text-white/90 mb-6">CHOOSE YOUR LEADER</p>
             <h2 className="pkm-title text-3xl md:text-4xl text-white mb-4">{MALE_LEADER_NAME}</h2>
-            <p className="text-white/90 max-w-sm">A collection of trainer cards from your small group. Gotta read 'em all.</p>
+            <p className="text-white/90 max-w-sm">A collection of trainer cards from your LIFE Group. Gotta read 'em all.</p>
             <span className="absolute bottom-8 left-10 pkm-badge inline-block px-4 py-2 text-xs">ENTER →</span>
           </Link>
 
