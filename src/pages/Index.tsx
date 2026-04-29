@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Thank You, Leaders — A Small Group Tribute';
+    document.title = 'Thank You, Leaders — A CANON LIFE Group Tribute';
     const meta =
       document.querySelector('meta[name="description"]') ??
       (() => {
@@ -13,17 +13,50 @@ const Index = () => {
         document.head.appendChild(m);
         return m;
       })();
-    meta.setAttribute('content', 'A heartfelt thank-you from our small group to two leaders who shaped us.');
+    meta.setAttribute('content', 'A heartfelt thank-you from our LIFE group to two leaders who prayed for and guided us.');
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main
+      className="min-h-screen text-foreground"
+      style={{
+        backgroundImage: 'url(/background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <section className="container mx-auto px-6 py-20 md:py-28 text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6">From your small group</p>
-        <h1 className="text-5xl md:text-7xl font-semibold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+        <p
+          className="text-base uppercase tracking-[0.2em] text-white font-bold mb-6"
+          style={{
+            fontFamily: "'Fredoka One', cursive",
+            WebkitTextStroke: '1px #000000',
+            textShadow: '2px 2px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000',
+          }}
+        >
+          From your CANON LIFE Group
+        </p>
+        <h1
+          className="text-5xl md:text-7xl font-semibold mb-6 text-orange-500"
+          style={{
+            fontFamily: 'TT Masters',
+            WebkitTextStroke: '2px #000000',
+            textShadow: '3px 3px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000',
+          }}
+        >
           Thank you, leaders.
         </h1>
-        <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-14">Two people. Twenty hearts. One huge thank-you. Pick a leader to read what we wrote.</p>
+        <p
+          className="max-w-2xl mx-auto text-lg text-white font-bold mb-14"
+          style={{
+            fontFamily: "'Fredoka One', cursive",
+            WebkitTextStroke: '1px #000000',
+            textShadow: '2px 2px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000',
+          }}
+        >
+          Two people. Twenty-one hearts. One huge thank-you. Pick a leader to read what we wrote.
+        </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <Link
