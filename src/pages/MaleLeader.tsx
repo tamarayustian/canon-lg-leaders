@@ -160,7 +160,7 @@ const MaleLeader = () => {
   return (
     <main className="pkm-page min-h-screen">
       {/* Header */}
-      <header className="container mx-auto px-6 pt-10 pb-6 flex items-center justify-between">
+      <header className="container mx-auto px-6 pt-10 pb-6 gap-x-3 flex items-center justify-between">
         <Link to="/" className="pkm-badge px-3 py-2 text-[10px]">
           ← BACK
         </Link>

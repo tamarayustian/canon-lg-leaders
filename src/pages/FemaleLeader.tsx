@@ -162,7 +162,7 @@ const FemaleLeader = () => {
         />
       ))}
 
-      <header className="container mx-auto px-6 pt-10 pb-4 flex items-center justify-between relative z-10">
+      <header className="container mx-auto px-6 pt-10 pb-4 flex gap-x-2 items-center justify-between relative z-10">
         <Link
           to="/"
           className="iu-serif text-xs tracking-[0.3em] uppercase px-4 py-2 rounded-full"
